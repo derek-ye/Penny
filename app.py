@@ -1,5 +1,5 @@
 import flask
-from receipts import ocr_space_file as ocr
+from receipt import ocr_space_file as ocr
 """
 ocr(filename) --> json with contents
 """

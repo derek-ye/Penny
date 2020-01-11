@@ -50,8 +50,3 @@ def ocr_space_url(url, overlay=False, api_key='9235378b0b88957', language='eng')
                       data=payload,
                       )
     return r.content.decode()
-
-
-# Use examples:
-test_file = ocr_space_file(filename='Reciept.jpg', language='eng')
-# test_url = ocr_space_url(url='http://i.imgur.com/31d5L5y.jpg')
