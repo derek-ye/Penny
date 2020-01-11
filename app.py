@@ -2,6 +2,10 @@ import flask
 
 app = flask.Flask(__name__)
 
+@app.route('/about')
+def about():
+    return "made by snacc overflow 3.0"
+
 @app.route('/')
 def index():
     """ Page at '/' """
