@@ -12,14 +12,20 @@ def index():
     # no 'templates/' before file -> Flask auto checks 'templates' folder
     return flask.render_template('index.html')
 
+@app.route('/index.html')
+def indexNav():
+    """ Page at '/index.html' """
+    # no 'templates/' before file -> Flask auto checks 'templates' folder
+    return flask.render_template('index.html')
+
 @app.route('/generic.html')
-def generic():
+def registerNav():
     """ Page at '/' """
     # no 'templates/' before file -> Flask auto checks 'templates' folder
     return flask.render_template('generic.html')
 
 @app.route('/master.html')
-def master():
+def loginNav():
     """ Page at '/' """
     # no 'templates/' before file -> Flask auto checks 'templates' folder
     return flask.render_template('master.html')
