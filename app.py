@@ -5,6 +5,7 @@ from werkzeug.utils import secure_filename
 import os
 
 os.system("rm *.pkl")
+os.system("rm *.txt")
 app = flask.Flask(__name__)
 
 
@@ -39,6 +40,9 @@ def loginNav():
         no_items += value[0]
         spending += value[0] * value[1]
     pkl.dump(spending, open("spending.pkl", "wb"))
+    ftxt = open("spending.txt","w+")
+    ftxt.write(str(spending))
+    ftxt.close()
     spending = '${:,.2f}'.format(spending)
     try:
         budget = pkl.load(open("budget.pkl", "rb" ))
@@ -109,6 +113,11 @@ def loginNav_post():
             purchases = {}
     
     pkl.dump(purchases, open("purchases.pkl", "wb"))
+    ftxt = open("purchases.txt","w+")
+    for key, value in purchases.items():
+        ftxt.write(str(key) + " " + str(value[2]))
+    ftxt.close()
+    
     spending = 0
     no_items = 0
 
@@ -116,6 +125,9 @@ def loginNav_post():
         no_items += value[0]
         spending += value[0] * value[1]
     pkl.dump(spending, open("spending.pkl", "wb"))
+    ftxt = open("spending.txt","w+")
+    ftxt.write(str(spending))
+    ftxt.close()
     spending = '${:,.2f}'.format(spending)
 
     try:
