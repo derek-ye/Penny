@@ -30,13 +30,19 @@ def loginNav():
 
 @app.route('/blank.html')
 def budgetNav():
-    budget = 0
+    try:
+        budget = pkl.load(open("budget.pkl", "rb" ))
+    except FileNotFoundError:
+        budget = 0
+    budget = '${:,.2f}'.format(budget)
     return flask.render_template('blank.html', budget=budget)
 
 @app.route('/blank.html', methods = ['GET', 'POST'])
 def budgetNav_post():
-    budget = request.form['budget']
-    budget = int(budget)
+    budget = flask.request.form['budget']
+    budget = float(budget)
+    pkl.dump(budget, open("budget.pkl", "wb"))
+    budget = '${:,.2f}'.format(budget)
     return flask.render_template('blank.html', budget=budget)
 
 @app.route('/tables.html')
