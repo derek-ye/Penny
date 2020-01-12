@@ -5,7 +5,7 @@ Make sure to have the following installed:
 - [Python 3](https://www.python.org/downloads/)
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/installation/)
 
-Run\
+## Run
 <span style="font-size:50px;">`pip3 install flask`</span>
 
 
