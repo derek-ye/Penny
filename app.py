@@ -25,7 +25,7 @@ def registerNav():
 
 @app.route('/master.html', methods = ['GET', 'POST'])
 def loginNav():
-
+    
     return flask.render_template('master.html')
 
 @app.route('/blank.html')
