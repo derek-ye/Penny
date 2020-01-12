@@ -4,8 +4,6 @@ from receipt import ocr_space_file as ocr
 ocr(filename) --> json with contents
 """
 
-# categories: adult, groceries, gas, electronics, entertainment, home goods, others
-
 app = flask.Flask(__name__)
 
 @app.route('/about')
@@ -27,6 +25,19 @@ def registerNav():
 @app.route('/master.html')
 def loginNav():
     return flask.render_template('master.html')
+
+@app.route('/blank.html')
+def budgetNav():
+    return flask.render_template('blank.html')
+
+@app.route('/login.html')
+def budgetNav():
+    return flask.render_template('login.html')
+
+@app.route('/tables.html')
+def budgetNav():
+    return flask.render_template('table.html')
+    
 
 if __name__ == '__main__':
     app.run(debug=True)
