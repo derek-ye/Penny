@@ -9,8 +9,8 @@ Run\
 <span style="font-size:50px;">`pip3 install flask`</span>
 
 
-## Testing it out
-In the project directory, you can run:\
+## Installation
+After cloning, type:\
 `python3 app.py`\
-to run app in the development mode.\
+int the project directory to run app in the development mode.\
 Open http://127.0.0.1:5000/ to view it in the browser.\
