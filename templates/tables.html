@@ -192,9 +192,8 @@
                     {% for key, value in purchases.items() %}
                     <tr>
                       <td>{{ key }}</td>
-                      <td>unknown</td>
-                      <td>unknown</td>
-                      <td>{{ value[1] }}</td>
+                      <td>{{ value[2] }}</td>
+                      <td>${{ value[1] }}</td>
                     </tr>
                     {% endfor %}
                   </tbody>
