@@ -4,6 +4,8 @@ from receipt import ocr_space_file as ocr
 ocr(filename) --> json with contents
 """
 
+# categories: adult, groceries, gas, electronics, entertainment, home goods, others
+
 app = flask.Flask(__name__)
 
 @app.route('/about')
