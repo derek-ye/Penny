@@ -327,13 +327,10 @@
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
+                      <i class="fas fa-circle text-primary"></i> Food
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
-                    </span>
-                    <span class="mr-2">
-                      <i class="fas fa-circle text-info"></i> Referral
+                      <i class="fas fa-circle text-success"></i> Electronics
                     </span>
                   </div>
                 </div>
@@ -540,12 +537,18 @@
 
   // Pie Chart Example
 var ctx = document.getElementById("myPieChart");
+var purch = '{{ purch|safe }}';
+var pp = JSON.parse(purch);
+//if (purch.readyState == 4) {
+//  pp = JSON.parse(purch);
+//}
+
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Food", "Electronics", "Social"],
+    labels: ["Food", "Electronics"],
     datasets: [{
-      data: [0, 45, 20],
+      data: [parseFloat(pp["food"]), parseFloat(pp["electronics"])],
       backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
       hoverBorderColor: "rgba(234, 236, 244, 1)",

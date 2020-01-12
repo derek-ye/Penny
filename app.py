@@ -51,7 +51,12 @@ def loginNav():
         budget = 0
     budget = '${:,.2f}'.format(budget)
 
-    js_value = json.dumps(purchases)
+    categories = {'food': "0", 'electronics': "0"}
+    for key, value in purchases.items():
+        categories[value[2]] = str(int(categories[value[2]]) + value[0])
+
+    js_value = json.dumps(categories)
+    #print(js_value)
 
     return flask.render_template('master.html', spending=spending, budget=budget, no_items=no_items, purchases=purchases, purch=js_value)
 
@@ -139,7 +144,14 @@ def loginNav_post():
         budget = 0
     budget = '${:,.2f}'.format(budget)
 
-    return flask.render_template('master.html', spending=spending, budget=budget, no_items=no_items, purchases=purchases)
+    categories = {'food': "0", 'electronics': "0"}
+    for key, value in purchases.items():
+        categories[value[2]] = str(int(categories[value[2]]) + value[0])
+
+    js_value = json.dumps(categories)
+    #print(js_value)
+
+    return flask.render_template('master.html', spending=spending, budget=budget, no_items=no_items, purchases=purchases, purch=js_value)
 
 @app.route('/blank.html')
 def budgetNav():
