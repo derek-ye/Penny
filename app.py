@@ -29,7 +29,7 @@ def loginNav():
 
 @app.route('/master.html', methods = ['GET', 'POST'])
 def loginNav_post():
-
+    
     return flask.render_template('master.html')
 
 @app.route('/blank.html')
