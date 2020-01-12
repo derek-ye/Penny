@@ -1,6 +1,6 @@
 from tesserocr import PyTessBaseAPI
 
-images = ['Receipt.jpg']
+images = ['0.jpg']
 
 with PyTessBaseAPI() as api:
     for img in images:
