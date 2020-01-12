@@ -1,4 +1,5 @@
 import flask
+import pickle as pkl
 from receipt import ocr_space_file as ocr
 """
 ocr(filename) --> json with contents
@@ -22,13 +23,21 @@ def indexNav():
 def registerNav():
     return flask.render_template('generic.html')
 
-@app.route('/master.html')
+@app.route('/master.html', methods = ['GET', 'POST'])
 def loginNav():
+
     return flask.render_template('master.html')
 
 @app.route('/blank.html')
 def budgetNav():
-    return flask.render_template('blank.html')
+    budget = 0
+    return flask.render_template('blank.html', budget=budget)
+
+@app.route('/blank.html', methods = ['GET', 'POST'])
+def budgetNav_post():
+    budget = request.form['budget']
+    budget = int(budget)
+    return flask.render_template('blank.html', budget=budget)
 
 @app.route('/tables.html')
 def tableNav():
