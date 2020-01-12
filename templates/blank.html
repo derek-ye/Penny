@@ -186,7 +186,9 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Enter your Monthly Budget</div>
-                      <input class="form-control bg-light border-0 small" placeholder="Ex. $4.20"></input>
+                        <form method="POST">
+                        <input class="form-control bg-light border-0 small" name="budget" placeholder="Ex. $4.20"></input>
+                        </form>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-2x text-gray-300"></i>
@@ -204,7 +206,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Current Monthly Budget:</div>
-                      <h3>$0.00</h3>
+                      <h3>{{ budget_remaining }}</h3>
                     </div>
                     <div class="col-auto">
                       
@@ -222,7 +224,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Monthly Budget:</div>
-                      <h3>$0.00</h3>
+                      <h3>{{ budget }}</h3>
                     </div>
                     <div class="col-auto">
                       
