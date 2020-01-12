@@ -159,7 +159,12 @@ def budgetNav_post():
 
 @app.route('/tables.html')
 def tableNav():
-    return flask.render_template('tables.html')
+    #purchases is key: (quantity, price)
+    try:
+        purchases = pkl.load(open("purchases.pkl", "rb" ))
+    except FileNotFoundError:
+        purchases = {}
+    return flask.render_template('tables.html', purchases=purchases)
     
 
 if __name__ == '__main__':
