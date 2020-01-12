@@ -19,3 +19,5 @@ Open http://127.0.0.1:5000/ to view it in the browser.\
 - Bootstrap
 
 ## Walkthrough
+<img src='./demo/home-screen.png' title='Home Screen' width='' alt='Home Screen' height="400"/>
+<img src='./demo/analysis.png' title='Home Screen' width='' alt='Home Screen' height="400"/>
