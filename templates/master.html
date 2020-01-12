@@ -22,6 +22,7 @@
 </head>
 
 <body id="page-top">
+  
   <!-- Page Wrapper -->
   <div id="wrapper">
 
@@ -259,7 +260,7 @@
                       <div class="card-body font-weight-bold" style="padding: 0rem; text-align: center; width: 100%; font-size: 1.6rem; position:absolute;">
                         Submit!
                       </div> 
-                      <input type=submit style="opacity: 0%; z-index: 0; height: 100%;" value=Upload>
+                      <input onclick="goFetch();" type=submit style="opacity: 0%; z-index: 0; height: 100%;" value=Upload>
                     </div> 
                 <!-- </div>  -->
               </form>
@@ -434,6 +435,10 @@
   
   // Area Chart Example
   var ctx = document.getElementById("myAreaChart");
+  var spending = parseFloat("{{ spending }}".replace('$', '').replace(',', ''))
+  //console.log("{{ spending }}")
+  //console.log("{{ spending }}".replace('$', ''))
+  //console.log(spending)
   var myLineChart = new Chart(ctx, {
     type: 'line',
     data: {
@@ -527,12 +532,11 @@
     myLineChart.update();
 
   }
-  var spending = fetch('../static/spending.txt')
+  function goFetch() {
+    fetch('static/spending.txt')
   .then(response => response.text())
   .then((text) => {
-    update(text)});
-
-  console.log(myLineChart.data.datasets[0].data[3]);
+    update(text)})}
 
   // Pie Chart Example
 var ctx = document.getElementById("myPieChart");

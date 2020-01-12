@@ -2,10 +2,11 @@ import flask
 import pickle as pkl
 from receipt import ocr_space_file as ocr
 from werkzeug.utils import secure_filename
+import json
 import os
 
 os.system("rm *.pkl")
-os.system("rm *.txt")
+os.system("rm static/*.txt")
 app = flask.Flask(__name__)
 
 
@@ -40,7 +41,7 @@ def loginNav():
         no_items += value[0]
         spending += value[0] * value[1]
     pkl.dump(spending, open("spending.pkl", "wb"))
-    ftxt = open("spending.txt","w+")
+    ftxt = open("static/spending.txt","w+")
     ftxt.write(str(spending))
     ftxt.close()
     spending = '${:,.2f}'.format(spending)
@@ -50,7 +51,9 @@ def loginNav():
         budget = 0
     budget = '${:,.2f}'.format(budget)
 
-    return flask.render_template('master.html', spending=spending, budget=budget, no_items=no_items, purchases=purchases)
+    js_value = json.dumps(purchases)
+
+    return flask.render_template('master.html', spending=spending, budget=budget, no_items=no_items, purchases=purchases, purch=js_value)
 
 @app.route('/master.html', methods = ['GET', 'POST'])
 def loginNav_post():
@@ -113,7 +116,7 @@ def loginNav_post():
             purchases = {}
     
     pkl.dump(purchases, open("purchases.pkl", "wb"))
-    ftxt = open("purchases.txt","w+")
+    ftxt = open("static/purchases.txt","w+")
     for key, value in purchases.items():
         ftxt.write(str(key) + " " + str(value[2]))
     ftxt.close()
@@ -125,7 +128,7 @@ def loginNav_post():
         no_items += value[0]
         spending += value[0] * value[1]
     pkl.dump(spending, open("spending.pkl", "wb"))
-    ftxt = open("spending.txt","w+")
+    ftxt = open("static/spending.txt","w+")
     ftxt.write(str(spending))
     ftxt.close()
     spending = '${:,.2f}'.format(spending)
