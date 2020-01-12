@@ -38,6 +38,7 @@ def loginNav():
     for key, value in purchases.items():
         no_items += value[0]
         spending += value[0] * value[1]
+    pkl.dump(spending, open("spending.pkl", "wb"))
     spending = '${:,.2f}'.format(spending)
     try:
         budget = pkl.load(open("budget.pkl", "rb" ))
@@ -114,6 +115,7 @@ def loginNav_post():
     for key, value in purchases.items():
         no_items += value[0]
         spending += value[0] * value[1]
+    pkl.dump(spending, open("spending.pkl", "wb"))
     spending = '${:,.2f}'.format(spending)
 
     try:
@@ -131,7 +133,7 @@ def budgetNav():
     except FileNotFoundError:
         budget = 0
     try:
-        budget_remaining = budget - pkl.load(open("total_spent.pkl", "rb" ))
+        budget_remaining = budget - pkl.load(open("spending.pkl", "rb" ))
     except FileNotFoundError:
         budget_remaining = budget
     
@@ -146,7 +148,7 @@ def budgetNav_post():
     pkl.dump(budget, open("budget.pkl", "wb"))
 
     try:
-        budget_remaining = budget - pkl.load(open("total_spent.pkl", "rb" ))
+        budget_remaining = budget - pkl.load(open("spending.pkl", "rb" ))
     except FileNotFoundError:
         budget_remaining = budget
     
