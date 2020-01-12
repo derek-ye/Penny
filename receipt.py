@@ -1,5 +1,6 @@
 from flask import request
 import requests
+import json
 
 def ocr_space_file(filename, overlay=False, api_key='9235378b0b88957', language='eng'):
     """ OCR.space API request with local file.
@@ -55,4 +56,5 @@ def ocr_space_url(url, overlay=False, api_key='9235378b0b88957', language='eng')
 
 if __name__ == "__main__":
     test_file = ocr_space_file(filename='Receipt.jpg', language='eng')
-    print(test_file)
+    test_obj = json.loads(test_file)
+    print(json.dumps(test_obj, indent = 1))
