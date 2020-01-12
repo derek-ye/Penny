@@ -168,14 +168,20 @@
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Set Budget</h1>
-            <!-- Enter monthly budget -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Budget</h1>
+            <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+          </div>
+
+          <!-- Content Row -->
+          <div class="row">
+
+            <!-- budget input -->
             <div class="col-xl-4 col-lg-8 mb-4">
-              <div class="card border-left-primary shadow h-100 py-3">
+              <div class="card border-left-warning shadow h-100 py-3">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -183,16 +189,62 @@
                       <input class="form-control bg-light border-0 small" placeholder="Ex. $4.20"></input>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                      <i class="fas fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          
+
+            <!-- amount of budget remaining -->
+
+            <div class="col-xl-4 col-lg-8 mb-4">
+              <div class="card border-left-success shadow h-100 py-3">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Current Monthly Budget:</div>
+                      <h3>$25.00</h3>
+                    </div>
+                    <div class="col-auto">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- current max budget -->
+            
+            <div class="col-xl-4 col-lg-8 mb-4">
+              <div class="card border-left-danger shadow h-100 py-3">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Current Monthly Budget:</div>
+                      <h3>$25.00</h3>
+                    </div>
+                    <div class="col-auto">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card shadow mb-4">
+            <!-- <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
+            </div> -->
+            <div class="card-body">
+              <div class="text-center">
+                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 45rem;" src="../static/sb-admin-2/img/undraw-savings.svg" alt="">
+              </div>
+            </div>
           </div>
       </div>
-
+      </div>
         <!-- /.container-fluid -->
 
       </div>
@@ -206,6 +258,7 @@
           </div>
         </div>
       </footer>
+
       <!-- End of Footer -->
 
     </div>
