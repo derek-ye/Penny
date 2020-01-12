@@ -32,7 +32,7 @@ def budgetNav():
 
 @app.route('/tables.html')
 def tableNav():
-    return flask.render_template('table.html')
+    return flask.render_template('tables.html')
     
 
 if __name__ == '__main__':
