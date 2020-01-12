@@ -12,5 +12,5 @@ Run\
 ## Installation
 After cloning, type:\
 `python3 app.py`\
-int the project directory to run app in the development mode.\
+in the project directory to run app in the development mode.\
 Open http://127.0.0.1:5000/ to view it in the browser.\
