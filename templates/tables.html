@@ -179,80 +179,23 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-          <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+              <h6 class="m-0 font-weight-bold text-primary">All Purchases</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
+                    {% for key, value in purchases.items() %}
                     <tr>
-                      <th>Item</th>
-                      <th>Item Number</th>
-                      <th>Category</th>
-                      <th>Price</th>
+                      <td>{{ key }}</td>
+                      <td>{{ value[2] }}</td>
+                      <td>${{ value[1] }}</td>
                     </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Item</th>
-                      <th>Item Number</th>
-                      <th>Category</th>
-                      <th>Price</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>Peanut Butter</td>
-                      <td>9235642</td>
-                      <td>Groceries</td>
-                      <td>5.99</td>
-                    </tr>
-                    <tr>
-                      <td>Peanut Butter</td>
-                      <td>9235642</td>
-                      <td>Groceries</td>
-                      <td>5.99</td>
-                    </tr><tr>
-                      <td>Peanut Butter</td>
-                      <td>9235642</td>
-                      <td>Groceries</td>
-                      <td>5.99</td>
-                    </tr><tr>
-                      <td>Peanut Butter</td>
-                      <td>9235642</td>
-                      <td>Groceries</td>
-                      <td>5.99</td>
-                    </tr><tr>
-                      <td>Peanut Butter</td>
-                      <td>9235642</td>
-                      <td>Groceries</td>
-                      <td>5.99</td>
-                    </tr><tr>
-                      <td>Peanut Butter</td>
-                      <td>9235642</td>
-                      <td>Groceries</td>
-                      <td>5.99</td>
-                    </tr><tr>
-                      <td>Peanut Butter</td>
-                      <td>9235642</td>
-                      <td>Groceries</td>
-                      <td>5.99</td>
-                    </tr><tr>
-                      <td>Peanut Butter</td>
-                      <td>9235642</td>
-                      <td>Groceries</td>
-                      <td>5.99</td>
-                    </tr><tr>
-                      <td>Peanut Butter</td>
-                      <td>9235642</td>
-                      <td>Groceries</td>
-                      <td>5.99</td>
-                    </tr>
+                    {% endfor %}
                   </tbody>
                 </table>
               </div>

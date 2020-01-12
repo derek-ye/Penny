@@ -64,44 +64,44 @@ def loginNav_post():
             if("eggs" in purchases):
                 purchases["eggs"][0] += 1
             else:
-                purchases["eggs"] = [1, 5.20]
+                purchases["eggs"] = [1, 5.20, 'food']
             if("milk" in purchases):
                 purchases["milk"][0] += 2
             else:
-                purchases["milk"] = [2, 5.99]
+                purchases["milk"] = [2, 5.99, 'food']
         except FileNotFoundError:
-            purchases = {"eggs": [1, 5.20], "milk": [2, 5.99]}
+            purchases = {"eggs": [1, 5.20, 'food'], "milk": [2, 5.99, 'food']}
     elif(rn == '1.png'):
         try:
             purchases = pkl.load(open("purchases.pkl", "rb" ))
             if("switch" in purchases):
                 purchases["switch"][0] += 1
             else:
-                purchases["switch"] = [1, 249.99]
+                purchases["switch"] = [1, 249.99, 'electronics']
             if("smash" in purchases):
                 purchases["smash"][0] += 1
             else:
-                purchases["smash"] = [1, 59.99]
+                purchases["smash"] = [1, 59.99, 'electronics']
             if("hersheys" in purchases):
                 purchases["hersheys"][0] += 1
             else:
-                purchases["hersheys"] = [1, 1.99]
+                purchases["hersheys"] = [1, 1.99, 'food']
         except FileNotFoundError:
-            purchases = {"switch": [1, 249.99], "smash": [1, 59.99], "hersheys": [1, 1.99]}
+            purchases = {"switch": [1, 249.99, 'electronics'], "smash": [1, 59.99, 'electronics'], "hersheys": [1, 1.99, 'food']}
     elif(rn == "2.png"):
         try:
             purchases = pkl.load(open("purchases.pkl", "rb" ))
             if("peanut butter" in purchases):
                 purchases["peanut butter"][0] += 1
             else:
-                purchases["peanut butter"] = [1, 3.50]
+                purchases["peanut butter"] = [1, 3.50, 'food']
             if("light bulbs" in purchases):
                 purchases["light bulbs"][0] += 1
             else:
-                purchases["light bulbs"] = [1, 14.99]
+                purchases["light bulbs"] = [1, 14.99, 'electronics']
         
         except FileNotFoundError:
-            purchases = {"peanut butter": [1, 3.50], "light bulbs": [1, 14.99]}
+            purchases = {"peanut butter": [1, 3.50, 'food'], "light bulbs": [1, 14.99, 'electronics']}
     else:
         try:
             purchases = pkl.load(open("purchases.pkl", "rb" ))
@@ -159,7 +159,12 @@ def budgetNav_post():
 
 @app.route('/tables.html')
 def tableNav():
-    return flask.render_template('tables.html')
+    #purchases is key: (quantity, price)
+    try:
+        purchases = pkl.load(open("purchases.pkl", "rb" ))
+    except FileNotFoundError:
+        purchases = {}
+    return flask.render_template('tables.html', purchases=purchases)
     
 
 if __name__ == '__main__':
