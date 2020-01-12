@@ -17,3 +17,5 @@ Open http://127.0.0.1:5000/ to view it in the browser.\
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/installation/)
 - [Tesseract](https://github.com/tesseract-ocr/)
 - Bootstrap
+
+## Walkthrough
