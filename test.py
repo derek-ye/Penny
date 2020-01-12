@@ -1,23 +1,11 @@
-def detect_text(path):
-    """Detects text in the file."""
-    from google.cloud import vision
-    import io
-    client = vision.ImageAnnotatorClient()
+from tesserocr import PyTessBaseAPI
 
-    with io.open(path, 'rb') as image_file:
-        content = image_file.read()
+images = ['sample.jpg', 'sample2.jpg', 'sample3.jpg']
 
-    image = vision.types.Image(content=content)
-
-    response = client.text_detection(image=image)
-    texts = response.text_annotations
-    print('Texts:')
-
-    for text in texts:
-        print('\n"{}"'.format(text.description))
-
-        vertices = (['({},{})'.format(vertex.x, vertex.y)
-                    for vertex in text.bounding_poly.vertices])
-
-        print('bounds: {}'.format(','.join(vertices)))
-detect_text('Receipt.jpg')
+with PyTessBaseAPI() as api:
+    for img in images:
+        api.SetImageFile(img)
+        print(api.GetUTF8Text())
+        print(api.AllWordConfidences())
+# api is automatically finalized when used in a with-statement (context manager).
+# otherwise api.End() should be explicitly called when it's no longer needed.
