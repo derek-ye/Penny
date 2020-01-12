@@ -30,10 +30,6 @@ def loginNav():
 def budgetNav():
     return flask.render_template('blank.html')
 
-@app.route('/login.html')
-def budgetNav():
-    return flask.render_template('login.html')
-
 @app.route('/tables.html')
 def budgetNav():
     return flask.render_template('table.html')
