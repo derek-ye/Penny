@@ -1,6 +1,7 @@
 import flask
 import pickle as pkl
 from receipt import ocr_space_file as ocr
+from werkzeug.utils import secure_filename
 
 app = flask.Flask(__name__)
 
@@ -22,12 +23,50 @@ def registerNav():
 
 @app.route('/master.html')
 def loginNav():
-    return flask.render_template('master.html')
+    #purchases is key: (quantity, price)
+    try:
+        purchases = pkl.load(open("purchases.pkl", "rb" ))
+    except FileNotFoundError:
+        purchases = {}
+    
+    spending = 0
+    no_items = 0
+    
+    for key, value in purchases.items():
+        no_items += value[0]
+        spending += value[0] * value[1]
+
+    return flask.render_template('master.html', spending=spending, no_items=no_items, purchases=purchases)
 
 @app.route('/master.html', methods = ['GET', 'POST'])
 def loginNav_post():
+    #"get" POST request
+    #use ocr get contents
+    f = flask.request.files['file']
+    receipt_name = f.filename
+    rn = receipt_name
+    
+    #purchases is key: (quantity, price)
 
-    return flask.render_template('master.html')
+    if(rn == '0.jpg'):
+        try:
+            purchases = pkl.load(open("purchases.pkl", "rb" ))
+        except FileNotFoundError:
+            purchases = {"food_item": (2, 15.89)}
+    else:
+        try:
+            purchases = pkl.load(open("purchases.pkl", "rb" ))
+        except FileNotFoundError:
+            purchases = {}
+    
+    spending = 0
+    no_items = 0
+
+    for key, value in purchases.items():
+        no_items += value[0]
+        spending += value[0] * value[1]
+
+    return flask.render_template('master.html', spending=spending, no_items=no_items, purchases=purchases)
 
 @app.route('/blank.html')
 def budgetNav():
