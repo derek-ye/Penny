@@ -24,7 +24,7 @@ def ocr_space_file(filename, overlay=False, api_key='9235378b0b88957', language=
     with open(filename, 'rb') as f:
         r = requests.post('https://api.ocr.space/parse/image',
                           files={filename: f},
-                          data=payload,
+                          data=payload
                           )
     return r.content.decode()
 
@@ -57,4 +57,4 @@ def ocr_space_url(url, overlay=False, api_key='9235378b0b88957', language='eng')
 if __name__ == "__main__":
     test_file = ocr_space_file(filename='Receipt.jpg', language='eng')
     test_obj = json.loads(test_file)
-    print(json.dumps(test_obj, indent = 1))
+    print(test_obj)
