@@ -31,7 +31,7 @@ def budgetNav():
     return flask.render_template('blank.html')
 
 @app.route('/tables.html')
-def budgetNav():
+def tableNav():
     return flask.render_template('table.html')
     
 
