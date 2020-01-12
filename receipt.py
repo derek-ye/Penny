@@ -57,4 +57,7 @@ def ocr_space_url(url, overlay=False, api_key='9235378b0b88957', language='eng')
 if __name__ == "__main__":
     test_file = ocr_space_file(filename='Receipt.jpg', language='eng')
     test_obj = json.loads(test_file)
-    print(test_obj)
+    import pprint
+    pp = pprint.PrettyPrinter(indent=4)
+    pp.pprint(test_file)
+    #print(test_obj)
