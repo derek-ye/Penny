@@ -1,9 +1,6 @@
 import flask
 import pickle as pkl
 from receipt import ocr_space_file as ocr
-"""
-ocr(filename) --> json with contents
-"""
 
 app = flask.Flask(__name__)
 
